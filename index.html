@@ -774,7 +774,7 @@ function renderAdminLogin(){
       <input type="password" id="loginPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
     </div>
     <button class="save-btn" onclick="doLogin()">เข้าสู่ระบบ</button>
-    <div class="hint">ต้องสร้างบัญชีแอดมินใน Firebase Console ก่อน (Authentication → Users)</div>
+    <div class="hint"></div>
   `;
   setTimeout(()=>document.getElementById('loginEmail')?.focus(), 100);
 }
