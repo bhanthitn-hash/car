@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ทางตรง มอเตอร์ | ตลาดรถมือสอง ซื้อขายตรงไปตรงมา</title>
+<meta name="description" content="ตลาดรถมือสองออนไลน์ ทางตรง มอเตอร์ ค้นหา เปรียบเทียบราคา รถมือสองทุกยี่ห้อ ตรวจสภาพและแจ้งประวัติชัดเจน ทักไลน์หรือโทรจองรถได้ทันที">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ทางตรง มอเตอร์ | ตลาดรถมือสอง">
+<meta property="og:description" content="ค้นหารถมือสองทุกยี่ห้อ เปรียบเทียบราคา ตรวจสภาพและแจ้งประวัติชัดเจน">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json" id="orgSchema">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "ทางตรง มอเตอร์",
+  "description": "ตลาดรถมือสองออนไลน์ ซื้อขายตรงไปตรงมา ตรวจสภาพและแจ้งประวัติชัดเจน",
+  "areaServed": "TH"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Sarabun:wght@400;500;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14161A;
+    --surface:#1E2128;
+    --surface-2:#262A33;
+    --line:#33384433;
+    --accent:#F5B700;
+    --accent-dim:#C99400;
+    --blue:#4D7EA8;
+    --text:#F2F0EA;
+    --text-muted:#9BA0AA;
+    --danger:#D64545;
+    --success:#4CAF6D;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Sarabun',sans-serif;
+    line-height:1.5;
+    padding-bottom:60px;
+  }
+  h1,h2,h3,.display{font-family:'Kanit',sans-serif; font-weight:700;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:'Sarabun',sans-serif; cursor:pointer; border:none;}
+  ::selection{background:var(--accent); color:var(--bg);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(20,22,26,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid #ffffff14;
+    padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-mark{width:34px; height:34px; flex-shrink:0;}
+  .logo-text{font-family:'Kanit',sans-serif; font-weight:800; font-size:19px; letter-spacing:0.3px;}
+  .logo-text span{color:var(--accent);}
+  .logo-sub{font-size:10px; color:var(--text-muted); letter-spacing:2px; margin-top:-2px;}
+  .admin-btn{
+    background:transparent; color:var(--text-muted); border:1px solid #ffffff22;
+    padding:8px 14px; border-radius:20px; font-size:13px; transition:.2s;
+  }
+  .admin-btn:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ---------- LINE floating button ---------- */
+  .line-fab{
+    position:fixed; right:16px; bottom:20px; z-index:80;
+    display:flex; align-items:center; gap:8px;
+    background:#06C755; color:#fff; padding:12px 18px; border-radius:30px;
+    box-shadow:0 8px 22px #06C75555; font-family:'Kanit',sans-serif; font-weight:600; font-size:14px;
+    transition:transform .15s;
+  }
+  .line-fab:hover{transform:scale(1.05);}
+  .line-fab svg{width:20px; height:20px;}
+
+  .line-btn{
+    width:100%; display:flex; align-items:center; justify-content:center; gap:8px;
+    background:#06C755; color:#fff; font-weight:700; font-family:'Kanit',sans-serif;
+    padding:14px; border-radius:10px; font-size:15px;
+  }
+  .cta-row{display:flex; flex-direction:column; gap:8px; margin-top:6px;}
+  .cta-note{text-align:center; font-size:11.5px; color:var(--text-muted); margin-top:8px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:44px 20px 28px; position:relative; overflow:hidden;
+    background:
+      radial-gradient(circle at 85% -10%, #F5B70022, transparent 55%),
+      repeating-linear-gradient(90deg, transparent, transparent 38px, #ffffff08 38px, #ffffff08 40px);
+  }
+  .road-line{
+    position:absolute; left:0; right:0; bottom:0; height:3px;
+    background:repeating-linear-gradient(90deg, var(--accent) 0 22px, transparent 22px 40px);
+    opacity:.5;
+  }
+  .hero h1{font-size:30px; line-height:1.25; max-width:480px;}
+  .hero h1 .hl{color:var(--accent);}
+  .hero p{color:var(--text-muted); margin-top:10px; font-size:14.5px; max-width:420px;}
+
+  .stat-row{display:flex; gap:22px; margin-top:24px; flex-wrap:wrap;}
+  .stat-block{min-width:110px;}
+  .stat-label{font-size:11px; color:var(--text-muted); letter-spacing:1px; margin-bottom:6px;}
+  .odometer{display:flex; gap:2px;}
+  .digit{
+    background:#0D0E11; color:var(--accent); font-family:'Roboto Mono',monospace;
+    font-weight:700; font-size:18px; padding:5px 6px; border-radius:4px;
+    box-shadow:inset 0 0 0 1px #ffffff14, inset 0 2px 4px #00000080;
+    min-width:14px; text-align:center;
+  }
+  .digit.sep{background:transparent; box-shadow:none; color:var(--text-muted); padding:5px 1px; font-size:16px;}
+  .digit.unit{background:transparent; box-shadow:none; color:var(--text-muted); font-family:'Sarabun',sans-serif; font-size:13px; font-weight:500; padding:5px 2px;}
+
+  /* ---------- Search / Filters ---------- */
+  .toolbar{
+    padding:18px 20px; display:flex; flex-direction:column; gap:12px;
+    background:var(--surface); border-bottom:1px solid #ffffff10;
+    position:sticky; top:63px; z-index:30;
+  }
+  .search-row{display:flex; gap:10px;}
+  .search-box{
+    flex:1; display:flex; align-items:center; gap:8px;
+    background:var(--surface-2); border:1px solid #ffffff18; border-radius:10px;
+    padding:10px 14px;
+  }
+  .search-box input{
+    background:transparent; border:none; outline:none; color:var(--text); flex:1; font-size:14px; font-family:'Sarabun',sans-serif;
+  }
+  .search-box input::placeholder{color:var(--text-muted);}
+  .filter-toggle{
+    background:var(--surface-2); border:1px solid #ffffff18; border-radius:10px;
+    padding:10px 16px; font-size:14px; color:var(--text); display:flex; align-items:center; gap:6px;
+    white-space:nowrap;
+  }
+  .filter-toggle.active{border-color:var(--accent); color:var(--accent);}
+
+  .filter-panel{
+    display:none; gap:12px; flex-wrap:wrap; padding-top:4px;
+  }
+  .filter-panel.open{display:flex;}
+  .filter-panel select, .filter-panel input[type=number]{
+    background:var(--surface-2); border:1px solid #ffffff18; color:var(--text);
+    padding:9px 10px; border-radius:8px; font-size:13px; font-family:'Sarabun',sans-serif;
+  }
+  .filter-group{display:flex; flex-direction:column; gap:4px;}
+  .filter-group label{font-size:11px; color:var(--text-muted);}
+  .range-pair{display:flex; gap:6px; align-items:center;}
+  .range-pair input{width:90px;}
+  .clear-filters{
+    background:transparent; color:var(--danger); font-size:12.5px; align-self:flex-end;
+    border:1px solid #D6454540; padding:9px 12px; border-radius:8px;
+  }
+
+  .result-count{padding:14px 20px 0; font-size:13px; color:var(--text-muted);}
+  .result-count b{color:var(--text);}
+
+  /* ---------- Catalog Grid ---------- */
+  .catalog{
+    padding:16px 20px 40px; display:grid; gap:16px;
+    grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+  }
+  .card{
+    background:var(--surface); border:1px solid #ffffff10; border-radius:14px;
+    overflow:hidden; transition:transform .18s, border-color .18s; cursor:pointer;
+  }
+  .card:hover{transform:translateY(-3px); border-color:#ffffff2a;}
+  .card-photo{
+    height:150px; position:relative; display:flex; align-items:center; justify-content:center;
+    background:
+      repeating-linear-gradient(90deg, transparent, transparent 26px, #ffffff06 26px, #ffffff06 27px),
+      linear-gradient(160deg, #ffffff08, transparent);
+    overflow:hidden;
+  }
+  .card-photo img{width:100%; height:100%; object-fit:cover;}
+  .card-photo svg{width:64%; filter:drop-shadow(0 6px 10px #00000060);}
+  .status-badge{
+    position:absolute; top:10px; left:10px; font-size:10.5px; padding:4px 9px; border-radius:20px;
+    font-weight:600; letter-spacing:.3px;
+  }
+  .status-available{background:#4CAF6D22; color:var(--success); border:1px solid #4CAF6D50;}
+  .status-sold{background:#D6454522; color:var(--danger); border:1px solid #D6454550;}
+  .card-body{padding:14px 16px 16px;}
+  .card-title{font-family:'Kanit',sans-serif; font-weight:600; font-size:16px;}
+  .card-sub{font-size:12.5px; color:var(--text-muted); margin-top:2px;}
+  .card-tags{display:flex; gap:6px; margin-top:9px; flex-wrap:wrap;}
+  .tag{
+    font-size:11px; background:var(--surface-2); color:var(--text-muted);
+    padding:3px 8px; border-radius:6px; border:1px solid #ffffff12;
+  }
+  .card-price{margin-top:12px; display:flex; align-items:baseline; gap:4px;}
+  .card-price .odometer .digit{font-size:15px; padding:4px 5px;}
+  .empty-state{
+    grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--text-muted);
+  }
+  .empty-state h3{color:var(--text); margin-bottom:8px; font-size:18px;}
+
+  /* ---------- Modal shared ---------- */
+  .overlay{
+    display:none; position:fixed; inset:0; background:#000000b0; z-index:100;
+    align-items:flex-end; justify-content:center;
+  }
+  .overlay.open{display:flex;}
+  .sheet{
+    background:var(--surface); width:100%; max-width:520px; max-height:88vh; overflow-y:auto;
+    border-radius:18px 18px 0 0; padding:22px 20px 28px; animation:slideUp .22s ease-out;
+  }
+  @keyframes slideUp{from{transform:translateY(30px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+  .sheet-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;}
+  .sheet-head h2{font-size:19px;}
+  .close-x{background:var(--surface-2); width:32px; height:32px; border-radius:50%; color:var(--text); font-size:16px;}
+
+  .detail-photo{height:170px; border-radius:12px; margin-bottom:10px; display:flex; align-items:center; justify-content:center; overflow:hidden;
+    background:repeating-linear-gradient(90deg, transparent, transparent 26px, #ffffff06 26px, #ffffff06 27px), linear-gradient(160deg,#ffffff08,transparent);}
+  .detail-photo img{width:100%; height:100%; object-fit:cover;}
+  .detail-photo svg{width:56%;}
+  .thumb-row{display:flex; gap:8px; margin-bottom:14px; overflow-x:auto;}
+  .thumb-row img{width:56px; height:44px; object-fit:cover; border-radius:6px; opacity:.55; cursor:pointer; border:2px solid transparent; flex-shrink:0;}
+  .thumb-row img.active{opacity:1; border-color:var(--accent);}
+
+  /* ---------- Admin photo upload ---------- */
+  .upload-zone{
+    border:1.5px dashed #ffffff30; border-radius:10px; padding:16px; text-align:center;
+    cursor:pointer; margin-bottom:12px; transition:.2s;
+  }
+  .upload-zone:hover{border-color:var(--accent);}
+  .upload-zone input{display:none;}
+  .upload-zone .u-label{font-size:13px; color:var(--text-muted);}
+  .upload-thumbs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;}
+  .upload-thumb{position:relative; width:64px; height:52px;}
+  .upload-thumb img{width:100%; height:100%; object-fit:cover; border-radius:8px;}
+  .upload-thumb .rm{
+    position:absolute; top:-6px; right:-6px; width:20px; height:20px; border-radius:50%;
+    background:var(--danger); color:#fff; font-size:12px; display:flex; align-items:center; justify-content:center;
+  }
+  .upload-thumb.uploading{display:flex; align-items:center; justify-content:center; background:var(--surface-2); font-size:10px; color:var(--text-muted);}
+  .detail-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0;}
+  .detail-item{background:var(--surface-2); border-radius:10px; padding:10px 12px;}
+  .detail-item .l{font-size:11px; color:var(--text-muted);}
+  .detail-item .v{font-family:'Kanit',sans-serif; font-weight:600; font-size:14.5px; margin-top:2px;}
+  .detail-desc{font-size:13.5px; color:var(--text-muted); margin:12px 0; line-height:1.6;}
+  .contact-btn{
+    width:100%; background:var(--accent); color:var(--bg); font-weight:700; font-family:'Kanit',sans-serif;
+    padding:14px; border-radius:10px; font-size:15px; margin-top:6px;
+  }
+
+  /* ---------- Admin ---------- */
+  .pass-row{display:flex; gap:8px; margin-top:14px;}
+  .pass-row input{flex:1; background:var(--surface-2); border:1px solid #ffffff18; color:var(--text); padding:12px; border-radius:8px; font-size:14px;}
+  .pass-row button{background:var(--accent); color:var(--bg); font-weight:700; padding:0 18px; border-radius:8px;}
+  .hint{font-size:11.5px; color:var(--text-muted); margin-top:8px;}
+  .admin-list-item{
+    display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--surface-2);
+    border-radius:10px; margin-bottom:8px; gap:10px;
+  }
+  .admin-list-item .info{font-size:13px;}
+  .admin-list-item .info b{font-family:'Kanit',sans-serif; display:block; font-size:14px;}
+  .admin-actions{display:flex; gap:6px;}
+  .icon-btn{width:32px; height:32px; border-radius:8px; background:var(--surface); color:var(--text-muted); font-size:14px;}
+  .icon-btn.danger{color:var(--danger);}
+  .icon-btn.edit:hover{color:var(--accent);}
+  .add-new-btn{
+    width:100%; background:transparent; border:1.5px dashed #ffffff30; color:var(--text-muted);
+    padding:12px; border-radius:10px; font-size:13.5px; margin-bottom:14px;
+  }
+  .add-new-btn:hover{border-color:var(--accent); color:var(--accent);}
+
+  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;}
+  .form-grid.full{grid-template-columns:1fr;}
+  .form-field{display:flex; flex-direction:column; gap:5px;}
+  .form-field label{font-size:11.5px; color:var(--text-muted);}
+  .form-field input, .form-field select, .form-field textarea{
+    background:var(--surface-2); border:1px solid #ffffff18; color:var(--text);
+    padding:10px; border-radius:8px; font-size:13.5px; font-family:'Sarabun',sans-serif;
+  }
+  .form-field textarea{resize:vertical; min-height:60px;}
+  .save-btn{width:100%; background:var(--accent); color:var(--bg); font-weight:700; font-family:'Kanit',sans-serif; padding:13px; border-radius:10px; margin-top:6px; font-size:14.5px;}
+  .back-link{font-size:12.5px; color:var(--text-muted); margin-bottom:10px; display:inline-block;}
+  .toast{
+    position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--surface-2);
+    border:1px solid var(--accent); color:var(--text); padding:11px 20px; border-radius:24px; font-size:13.5px;
+    z-index:200; display:none; box-shadow:0 8px 24px #00000060;
+  }
+  footer{text-align:center; padding:26px 20px 10px; color:var(--text-muted); font-size:12px;}
+  footer a{color:var(--text-muted); text-decoration:underline; text-underline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+      <rect width="40" height="40" rx="9" fill="#1E2128"/>
+      <path d="M8 24h24M12 24l3-8h10l3 8" stroke="#F5B700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="14" cy="26" r="2.4" fill="#F5B700"/>
+      <circle cx="26" cy="26" r="2.4" fill="#F5B700"/>
+    </svg>
+    <div>
+      <div class="logo-text">ทาง<span>ตรง</span> มอเตอร์</div>
+      <div class="logo-sub">USED CAR MARKET</div>
+    </div>
+  </div>
+  <button class="admin-btn" onclick="openAdmin()">สำหรับผู้ดูแล</button>
+</header>
+
+<section class="hero">
+  <h1>ซื้อขายรถมือสอง <span class="hl">ตรงไปตรงมา</span> ไม่มีหมกเม็ด</h1>
+  <p>ทุกคันตรวจสภาพและแจ้งประวัติชัดเจน ค้นหา กรอง เทียบราคาได้ในที่เดียว</p>
+  <div class="stat-row">
+    <div class="stat-block">
+      <div class="stat-label">รถในระบบ</div>
+      <div class="odometer" id="statCount"></div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">ราคาเริ่มต้น (บาท)</div>
+      <div class="odometer" id="statMinPrice"></div>
+    </div>
+  </div>
+  <div class="road-line"></div>
+</section>
+
+<div class="toolbar">
+  <div class="search-row">
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9BA0AA" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="searchInput" type="text" placeholder="ค้นหา ยี่ห้อ รุ่น ปี...">
+    </div>
+    <button class="filter-toggle" id="filterToggleBtn" onclick="toggleFilters()">ตัวกรอง</button>
+  </div>
+  <div class="filter-panel" id="filterPanel">
+    <div class="filter-group">
+      <label>ยี่ห้อ</label>
+      <select id="fBrand"><option value="">ทั้งหมด</option></select>
+    </div>
+    <div class="filter-group">
+      <label>เกียร์</label>
+      <select id="fTrans">
+        <option value="">ทั้งหมด</option>
+        <option value="auto">เกียร์อัตโนมัติ</option>
+        <option value="manual">เกียร์ธรรมดา</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>เชื้อเพลิง</label>
+      <select id="fFuel">
+        <option value="">ทั้งหมด</option>
+        <option value="gasoline">เบนซิน</option>
+        <option value="diesel">ดีเซล</option>
+        <option value="hybrid">ไฮบริด</option>
+        <option value="ev">ไฟฟ้า (EV)</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>ช่วงราคา (บาท)</label>
+      <div class="range-pair">
+        <input type="number" id="fPriceMin" placeholder="ต่ำสุด">
+        <span>–</span>
+        <input type="number" id="fPriceMax" placeholder="สูงสุด">
+      </div>
+    </div>
+    <div class="filter-group">
+      <label>ปีรถ</label>
+      <div class="range-pair">
+        <input type="number" id="fYearMin" placeholder="เริ่ม">
+        <span>–</span>
+        <input type="number" id="fYearMax" placeholder="ถึง">
+      </div>
+    </div>
+    <div class="filter-group">
+      <label>เรียงตาม</label>
+      <select id="fSort">
+        <option value="new">ลงล่าสุด</option>
+        <option value="priceAsc">ราคา: ต่ำ→สูง</option>
+        <option value="priceDesc">ราคา: สูง→ต่ำ</option>
+        <option value="mileageAsc">เลขไมล์น้อยสุด</option>
+      </select>
+    </div>
+    <button class="clear-filters" onclick="clearFilters()">ล้างตัวกรอง</button>
+  </div>
+</div>
+
+<div class="result-count" id="resultCount"></div>
+<div class="catalog" id="catalog"></div>
+
+<footer>
+  ทางตรง มอเตอร์ · ข้อมูลรถทั้งหมดเป็นข้อมูลสาธิต · <a href="#" onclick="openAdmin();return false;">เข้าสู่ระบบผู้ดูแล</a>
+</footer>
+
+<a class="line-fab" id="lineFab" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.9 2 10.7c0 4.28 3.54 7.86 8.32 8.6.32.07.76.21.87.49.1.25.07.65.03.9l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.7-3.36 7.78-5.75C21.2 14.02 22 12.44 22 10.7 22 5.9 17.52 2 12 2z"/></svg>
+  แอดไลน์คุยกับเรา
+</a>
+
+<!-- Car detail modal -->
+<div class="overlay" id="detailOverlay">
+  <div class="sheet" id="detailSheet"></div>
+</div>
+
+<!-- Admin overlay -->
+<div class="overlay" id="adminOverlay">
+  <div class="sheet" id="adminSheet"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ===== Firebase SDK (compat build, works with plain <script>) ===== -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+// ===== 1) วางค่า config จาก Firebase Console ของคุณตรงนี้ =====
+// Firebase Console > Project settings > General > Your apps > SDK setup and configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCOme-IQOGT3e7H_yuGKIVBarUUy_MNxf8",
+  authDomain: "carvip-55c82.firebaseapp.com",
+  projectId: "carvip-55c82",
+  storageBucket: "carvip-55c82.firebasestorage.app",
+  messagingSenderId: "723988762857",
+  appId: "1:723988762857:web:66e1d30df902209a2a6078",
+  measurementId: "G-98EL1J9E14"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const carsRef = db.collection('cars');
+const auth = firebase.auth();
+
+// ===== 2) ใส่ช่องทางติดต่อ LINE ตรงนี้ =====
+// ถ้ามี LINE Official Account: ใส่เป็น "https://line.me/R/ti/p/@YOUR_LINE_ID" (มี @ นำหน้า ID)
+// ถ้าใช้ LINE ส่วนตัว: ใส่เป็น "https://line.me/ti/p/YOUR_LINE_ID"
+const LINE_URL = "https://line.me/R/ti/p/@325asjnq";
+
+// ===== 3) ใส่ค่า Cloudinary สำหรับอัปโหลดรูปรถ =====
+// สมัครฟรีที่ cloudinary.com > Dashboard จะเห็น "Cloud name"
+// สร้าง Upload Preset (unsigned) ที่ Settings > Upload > Upload presets
+const CLOUDINARY_CLOUD_NAME = "rlvhrl94";
+const CLOUDINARY_UPLOAD_PRESET = "preset-car";
+</script>
+
+<script>
+let cars = [];
+let adminMode = false;
+let editingId = null;
+let filtersOpen = false;
+
+const carSVG = (hex) => `
+<svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15 62 Q15 42 40 40 L58 22 Q64 16 74 16 L128 16 Q138 16 144 24 L160 40 Q185 42 185 62 L185 66 L15 66 Z"
+        fill="${hex}" opacity="0.92"/>
+  <path d="M64 24 L74 24 Q78 24 78 30 L78 39 L58 39 Z" fill="#14161A" opacity="0.55"/>
+  <path d="M84 24 L124 24 Q132 24 136 30 L140 39 L84 39 Z" fill="#14161A" opacity="0.55"/>
+  <circle cx="52" cy="66" r="15" fill="#14161A"/>
+  <circle cx="52" cy="66" r="6.5" fill="#3a3f4a"/>
+  <circle cx="150" cy="66" r="15" fill="#14161A"/>
+  <circle cx="150" cy="66" r="6.5" fill="#3a3f4a"/>
+</svg>`;
+
+async function uploadToCloudinary(file){
+  const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  const res = await fetch(url, { method: 'POST', body: fd });
+  if(!res.ok) throw new Error('upload failed');
+  const data = await res.json();
+  return data.secure_url;
+}
+
+const brandTH = {};
+const fuelTH = {gasoline:'เบนซิน', diesel:'ดีเซล', hybrid:'ไฮบริด', ev:'ไฟฟ้า (EV)'};
+const transTH = {auto:'เกียร์อัตโนมัติ', manual:'เกียร์ธรรมดา'};
+
+function fmtNum(n){ return Math.round(n).toLocaleString('en-US'); }
+
+function renderOdometer(container, targetValue, suffix){
+  const str = fmtNum(targetValue);
+  let html = '';
+  for(const ch of str){
+    if(ch === ',') html += `<div class="digit sep">,</div>`;
+    else html += `<div class="digit">${ch}</div>`;
+  }
+  if(suffix) html += `<div class="digit unit">${suffix}</div>`;
+  container.innerHTML = html;
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(()=> t.style.display='none', 2200);
+}
+
+// ---------- Firestore ----------
+let unsubscribe = null;
+
+function listenToCars(){
+  unsubscribe = carsRef.onSnapshot(snapshot => {
+    cars = snapshot.docs.map(d => ({id: d.id, ...d.data()}));
+    refreshAll();
+    // keep admin list in sync if it's currently open
+    if(adminMode && document.getElementById('adminListItems')){
+      renderAdminList();
+    }
+  }, err => {
+    console.error(err);
+    showToast('เชื่อมต่อฐานข้อมูลไม่สำเร็จ ตรวจสอบ Firebase config');
+  });
+}
+
+async function seedIfEmpty(){
+  const snap = await carsRef.limit(1).get();
+  if(snap.empty){
+    const batch = db.batch();
+    seedCars().forEach(c => {
+      const {id, ...data} = c;
+      batch.set(carsRef.doc(), data);
+    });
+    await batch.commit();
+  }
+}
+
+function seedCars(){
+  const now = Date.now();
+  return [
+    {id:'c1', brand:'Toyota', model:'Corolla Altis 1.6', year:2019, price:459000, mileage:62000, transmission:'auto', fuel:'gasoline', color:'ขาวมุก', colorHex:'#EDEDED', phone:'081-234-5678', description:'รถบ้านมือเดียว ไม่เคยชนหนัก เอกสารครบ ผ่อนต่อได้', status:'available', dateAdded: now-86400000*2},
+    {id:'c2', brand:'Honda', model:'Civic FC 1.8 EL', year:2020, price:629000, mileage:41000, transmission:'auto', fuel:'gasoline', color:'แดง', colorHex:'#C1440E', phone:'089-111-2233', description:'สภาพสวย เข้าศูนย์ตลอด ประวัติชัดเจน', status:'available', dateAdded: now-86400000*5},
+    {id:'c3', brand:'Isuzu', model:'D-Max V-Cross 3.0', year:2018, price:539000, mileage:98000, transmission:'manual', fuel:'diesel', color:'เทาด้าน', colorHex:'#6B7280', phone:'090-555-7788', description:'รถกระบะสภาพพร้อมใช้งาน เครื่องช่วงล่างแน่น', status:'available', dateAdded: now-86400000*1},
+    {id:'c4', brand:'Mazda', model:'2 Skyactiv 1.3', year:2021, price:399000, mileage:23000, transmission:'auto', fuel:'gasoline', color:'น้ำเงิน', colorHex:'#3D6A9C', phone:'086-999-4455', description:'ไมล์น้อย ประหยัดน้ำมัน เหมาะมือใหม่', status:'sold', dateAdded: now-86400000*9},
+    {id:'c5', brand:'Toyota', model:'Camry Hybrid 2.5', year:2022, price:1250000, mileage:15000, transmission:'auto', fuel:'hybrid', color:'ดำ', colorHex:'#1C1F26', phone:'082-333-1122', description:'ท็อปสุด ออฟชั่นเต็ม ประกันศูนย์เหลือ', status:'available', dateAdded: now-86400000*0.5},
+    {id:'c6', brand:'MG', model:'ZS EV', year:2023, price:749000, mileage:8000, transmission:'auto', fuel:'ev', color:'ขาว', colorHex:'#F2F0EA', phone:'095-777-6644', description:'รถไฟฟ้าประหยัดสุด ๆ แบตยังเต็มประสิทธิภาพ', status:'available', dateAdded: now-86400000*3},
+  ];
+}
+
+// ---------- Filters & rendering ----------
+function populateBrandFilter(){
+  const sel = document.getElementById('fBrand');
+  const brands = [...new Set(cars.map(c=>c.brand))].sort();
+  sel.innerHTML = '<option value="">ทั้งหมด</option>' + brands.map(b=>`<option value="${b}">${b}</option>`).join('');
+}
+
+function getFiltered(){
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const brand = document.getElementById('fBrand').value;
+  const trans = document.getElementById('fTrans').value;
+  const fuel = document.getElementById('fFuel').value;
+  const pMin = parseFloat(document.getElementById('fPriceMin').value) || 0;
+  const pMax = parseFloat(document.getElementById('fPriceMax').value) || Infinity;
+  const yMin = parseFloat(document.getElementById('fYearMin').value) || 0;
+  const yMax = parseFloat(document.getElementById('fYearMax').value) || Infinity;
+  const sort = document.getElementById('fSort').value;
+
+  let list = cars.filter(c => {
+    const text = (c.brand+' '+c.model+' '+c.year).toLowerCase();
+    if(q && !text.includes(q)) return false;
+    if(brand && c.brand !== brand) return false;
+    if(trans && c.transmission !== trans) return false;
+    if(fuel && c.fuel !== fuel) return false;
+    if(c.price < pMin || c.price > pMax) return false;
+    if(c.year < yMin || c.year > yMax) return false;
+    return true;
+  });
+
+  if(sort === 'priceAsc') list.sort((a,b)=>a.price-b.price);
+  else if(sort === 'priceDesc') list.sort((a,b)=>b.price-a.price);
+  else if(sort === 'mileageAsc') list.sort((a,b)=>a.mileage-b.mileage);
+  else list.sort((a,b)=>b.dateAdded-a.dateAdded);
+
+  return list;
+}
+
+function renderStats(){
+  renderOdometer(document.getElementById('statCount'), cars.filter(c=>c.status==='available').length, '');
+  const available = cars.filter(c=>c.status==='available');
+  const minPrice = available.length ? Math.min(...available.map(c=>c.price)) : 0;
+  renderOdometer(document.getElementById('statMinPrice'), minPrice, '');
+}
+
+function renderCatalog(){
+  const list = getFiltered();
+  const grid = document.getElementById('catalog');
+  document.getElementById('resultCount').innerHTML = `พบ <b>${list.length}</b> คัน จากทั้งหมด ${cars.length} คัน`;
+
+  if(list.length === 0){
+    grid.innerHTML = `<div class="empty-state"><h3>ไม่พบรถที่ตรงกับตัวกรอง</h3><p>ลองล้างตัวกรองหรือค้นหาด้วยคำอื่น</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(c => `
+    <div class="card" onclick="openDetail('${c.id}')">
+      <div class="card-photo">
+        <span class="status-badge ${c.status==='available'?'status-available':'status-sold'}">${c.status==='available'?'พร้อมขาย':'ขายแล้ว'}</span>
+        ${c.images && c.images.length ? `<img src="${c.images[0]}" alt="${c.brand} ${c.model}" loading="lazy">` : carSVG(c.colorHex)}
+      </div>
+      <div class="card-body">
+        <div class="card-title">${c.brand} ${c.model}</div>
+        <div class="card-sub">ปี ${c.year} · ${fmtNum(c.mileage)} กม. · สี${c.color}</div>
+        <div class="card-tags">
+          <span class="tag">${transTH[c.transmission]}</span>
+          <span class="tag">${fuelTH[c.fuel]}</span>
+        </div>
+        <div class="card-price">
+          <div class="odometer" id="price-${c.id}"></div>
+          <span style="font-size:12px;color:var(--text-muted)">บาท</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  list.forEach(c => renderOdometer(document.getElementById(`price-${c.id}`), c.price, ''));
+}
+
+function refreshAll(){
+  populateBrandFilter();
+  renderStats();
+  renderCatalog();
+  renderCarSchema();
+}
+
+// ---------- SEO: structured data so Google & AI search engines can find every car ----------
+function renderCarSchema(){
+  let el = document.getElementById('carListSchema');
+  if(!el){
+    el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = 'carListSchema';
+    document.head.appendChild(el);
+  }
+  const items = cars.filter(c => c.status === 'available').map((c, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Vehicle",
+      "name": `${c.brand} ${c.model} ปี ${c.year}`,
+      "brand": c.brand,
+      "model": c.model,
+      "vehicleModelDate": String(c.year),
+      "mileageFromOdometer": { "@type": "QuantitativeValue", "value": c.mileage, "unitCode": "KMT" },
+      "vehicleTransmission": c.transmission === 'auto' ? 'Automatic' : 'Manual',
+      "fuelType": fuelTH[c.fuel],
+      "color": c.color,
+      ...(c.images && c.images.length ? { "image": c.images[0] } : {}),
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "THB",
+        "price": c.price,
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  }));
+  el.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": items
+  });
+}
+
+// ---------- Filter panel toggle ----------
+function toggleFilters(){
+  filtersOpen = !filtersOpen;
+  document.getElementById('filterPanel').classList.toggle('open', filtersOpen);
+  document.getElementById('filterToggleBtn').classList.toggle('active', filtersOpen);
+}
+function clearFilters(){
+  document.getElementById('fBrand').value = '';
+  document.getElementById('fTrans').value = '';
+  document.getElementById('fFuel').value = '';
+  document.getElementById('fPriceMin').value = '';
+  document.getElementById('fPriceMax').value = '';
+  document.getElementById('fYearMin').value = '';
+  document.getElementById('fYearMax').value = '';
+  document.getElementById('fSort').value = 'new';
+  document.getElementById('searchInput').value = '';
+  renderCatalog();
+}
+['fBrand','fTrans','fFuel','fPriceMin','fPriceMax','fYearMin','fYearMax','fSort'].forEach(id=>{
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById(id).addEventListener('input', renderCatalog);
+    document.getElementById(id).addEventListener('change', renderCatalog);
+  });
+});
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('searchInput').addEventListener('input', renderCatalog);
+});
+
+// ---------- Detail modal ----------
+function openDetail(id){
+  const c = cars.find(x=>x.id===id);
+  if(!c) return;
+  const sheet = document.getElementById('detailSheet');
+  sheet.innerHTML = `
+    <div class="sheet-head">
+      <h2>${c.brand} ${c.model}</h2>
+      <button class="close-x" onclick="closeOverlay('detailOverlay')">✕</button>
+    </div>
+    <div class="detail-photo" id="detailPhotoMain">${c.images && c.images.length ? `<img src="${c.images[0]}" alt="${c.brand} ${c.model}">` : carSVG(c.colorHex)}</div>
+    ${c.images && c.images.length > 1 ? `
+    <div class="thumb-row">
+      ${c.images.map((img, i) => `<img src="${img}" class="${i===0?'active':''}" onclick="switchDetailPhoto('${c.id}', ${i}, this)">`).join('')}
+    </div>` : ''}
+    <div class="odometer" id="detailPrice" style="margin-bottom:4px;"></div>
+    <div style="font-size:12px;color:var(--text-muted)">ราคา (บาท) · ${c.status==='available'?'พร้อมขาย':'ขายแล้ว'}</div>
+    <div class="detail-grid">
+      <div class="detail-item"><div class="l">ปีรถ</div><div class="v">${c.year}</div></div>
+      <div class="detail-item"><div class="l">เลขไมล์</div><div class="v">${fmtNum(c.mileage)} กม.</div></div>
+      <div class="detail-item"><div class="l">เกียร์</div><div class="v">${transTH[c.transmission]}</div></div>
+      <div class="detail-item"><div class="l">เชื้อเพลิง</div><div class="v">${fuelTH[c.fuel]}</div></div>
+      <div class="detail-item"><div class="l">สี</div><div class="v">${c.color}</div></div>
+      <div class="detail-item"><div class="l">ติดต่อ</div><div class="v">${c.phone}</div></div>
+    </div>
+    <div class="detail-desc">${c.description || 'ไม่มีรายละเอียดเพิ่มเติม'}</div>
+    ${c.status === 'available' ? `
+    <div class="cta-row">
+      <a class="line-btn" href="${LINE_URL}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 5.9 2 10.7c0 4.28 3.54 7.86 8.32 8.6.32.07.76.21.87.49.1.25.07.65.03.9l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.7-3.36 7.78-5.75C21.2 14.02 22 12.44 22 10.7 22 5.9 17.52 2 12 2z"/></svg>
+        ทักไลน์ จองรถคันนี้เลย
+      </a>
+      <a class="contact-btn" style="display:block;text-align:center;" href="tel:${c.phone.replace(/-/g,'')}">โทรเลย · ${c.phone}</a>
+    </div>
+    <div class="cta-note">ตอบไว จองก่อนมีสิทธิ์ก่อน</div>
+    ` : `
+    <div class="cta-note" style="margin-top:14px;">รถคันนี้ขายแล้ว — ทักไลน์เพื่อดูคันอื่นที่ใกล้เคียงกัน</div>
+    <a class="line-btn" href="${LINE_URL}" target="_blank" rel="noopener" style="margin-top:8px;">แอดไลน์สอบถามรถคันอื่น</a>
+    `}
+  `;
+  renderOdometer(document.getElementById('detailPrice'), c.price, '');
+  document.getElementById('detailOverlay').classList.add('open');
+}
+
+function switchDetailPhoto(carId, idx, thumbEl){
+  const c = cars.find(x=>x.id===carId);
+  if(!c || !c.images) return;
+  document.getElementById('detailPhotoMain').innerHTML = `<img src="${c.images[idx]}" alt="${c.brand} ${c.model}">`;
+  thumbEl.parentElement.querySelectorAll('img').forEach(el=>el.classList.remove('active'));
+  thumbEl.classList.add('active');
+}
+
+function closeOverlay(id){
+  document.getElementById(id).classList.remove('open');
+}
+
+// ---------- Admin (Firebase Auth) ----------
+auth.onAuthStateChanged(user => {
+  adminMode = !!user;
+  // if admin overlay is open, refresh its view to match auth state
+  const overlay = document.getElementById('adminOverlay');
+  if(overlay.classList.contains('open')){
+    adminMode ? renderAdminList() : renderAdminLogin();
+  }
+});
+
+function openAdmin(){
+  editingId = null;
+  auth.currentUser ? renderAdminList() : renderAdminLogin();
+  document.getElementById('adminOverlay').classList.add('open');
+}
+
+function renderAdminLogin(){
+  document.getElementById('adminSheet').innerHTML = `
+    <div class="sheet-head">
+      <h2>เข้าสู่ระบบผู้ดูแล</h2>
+      <button class="close-x" onclick="closeOverlay('adminOverlay')">✕</button>
+    </div>
+    <div class="form-field" style="margin-bottom:10px;">
+      <label>อีเมล</label>
+      <input type="email" id="loginEmail" placeholder="admin@example.com">
+    </div>
+    <div class="form-field" style="margin-bottom:12px;">
+      <label>รหัสผ่าน</label>
+      <input type="password" id="loginPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <button class="save-btn" onclick="doLogin()">เข้าสู่ระบบ</button>
+    <div class="hint">ต้องสร้างบัญชีแอดมินใน Firebase Console ก่อน (Authentication → Users)</div>
+  `;
+  setTimeout(()=>document.getElementById('loginEmail')?.focus(), 100);
+}
+
+async function doLogin(){
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  if(!email || !pass){ showToast('กรอกอีเมลและรหัสผ่าน'); return; }
+  try{
+    await auth.signInWithEmailAndPassword(email, pass);
+    renderAdminList();
+  }catch(e){
+    showToast('เข้าสู่ระบบไม่สำเร็จ: อีเมลหรือรหัสผ่านไม่ถูกต้อง');
+  }
+}
+
+function logout(){
+  auth.signOut();
+  renderAdminLogin();
+}
+
+function renderAdminList(){
+  document.getElementById('adminSheet').innerHTML = `
+    <div class="sheet-head">
+      <h2>จัดการรถในระบบ</h2>
+      <button class="close-x" onclick="closeOverlay('adminOverlay')">✕</button>
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-bottom:10px;">
+      <button class="admin-btn" style="padding:6px 12px;" onclick="logout()">ออกจากระบบ</button>
+    </div>
+    <button class="add-new-btn" onclick="renderAdminForm(null)">+ เพิ่มรถใหม่</button>
+    <div id="adminListItems"></div>
+  `;
+  const container = document.getElementById('adminListItems');
+  if(cars.length === 0){
+    container.innerHTML = `<div class="hint">ยังไม่มีรถในระบบ</div>`;
+    return;
+  }
+  container.innerHTML = [...cars].sort((a,b)=>b.dateAdded-a.dateAdded).map(c=>`
+    <div class="admin-list-item">
+      <div class="info">
+        <b>${c.brand} ${c.model}</b>
+        ปี ${c.year} · ${fmtNum(c.price)} บาท · ${c.status==='available'?'พร้อมขาย':'ขายแล้ว'}
+      </div>
+      <div class="admin-actions">
+        <button class="icon-btn edit" onclick="renderAdminForm('${c.id}')" title="แก้ไข">✎</button>
+        <button class="icon-btn danger" onclick="deleteCar('${c.id}')" title="ลบ">🗑</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderAdminForm(id){
+  editingId = id;
+  const c = id ? cars.find(x=>x.id===id) : null;
+  formImages = c && c.images ? [...c.images] : [];
+  document.getElementById('adminSheet').innerHTML = `
+    <a class="back-link" onclick="renderAdminList()">← กลับ</a>
+    <div class="sheet-head">
+      <h2>${c ? 'แก้ไขรถ' : 'เพิ่มรถใหม่'}</h2>
+      <button class="close-x" onclick="closeOverlay('adminOverlay')">✕</button>
+    </div>
+    <div class="form-field" style="margin-bottom:6px;"><label>รูปรถ (สูงสุด 5 รูป)</label></div>
+    <div class="upload-thumbs" id="uploadThumbs"></div>
+    <label class="upload-zone">
+      <input type="file" id="fld-photos" accept="image/*" multiple onchange="handlePhotoSelect(event)">
+      <div class="u-label">📷 แตะเพื่อเลือกรูปรถจากเครื่อง</div>
+    </label>
+    <div class="form-grid">
+      <div class="form-field"><label>ยี่ห้อ</label><input id="fld-brand" value="${c?c.brand:''}" placeholder="Toyota"></div>
+      <div class="form-field"><label>รุ่น</label><input id="fld-model" value="${c?c.model:''}" placeholder="Corolla Altis"></div>
+      <div class="form-field"><label>ปี (พ.ศ./ค.ศ.)</label><input id="fld-year" type="number" value="${c?c.year:''}" placeholder="2020"></div>
+      <div class="form-field"><label>ราคา (บาท)</label><input id="fld-price" type="number" value="${c?c.price:''}" placeholder="450000"></div>
+      <div class="form-field"><label>เลขไมล์ (กม.)</label><input id="fld-mileage" type="number" value="${c?c.mileage:''}" placeholder="50000"></div>
+      <div class="form-field">
+        <label>เกียร์</label>
+        <select id="fld-trans">
+          <option value="auto" ${c&&c.transmission==='auto'?'selected':''}>เกียร์อัตโนมัติ</option>
+          <option value="manual" ${c&&c.transmission==='manual'?'selected':''}>เกียร์ธรรมดา</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>เชื้อเพลิง</label>
+        <select id="fld-fuel">
+          <option value="gasoline" ${c&&c.fuel==='gasoline'?'selected':''}>เบนซิน</option>
+          <option value="diesel" ${c&&c.fuel==='diesel'?'selected':''}>ดีเซล</option>
+          <option value="hybrid" ${c&&c.fuel==='hybrid'?'selected':''}>ไฮบริด</option>
+          <option value="ev" ${c&&c.fuel==='ev'?'selected':''}>ไฟฟ้า (EV)</option>
+        </select>
+      </div>
+      <div class="form-field"><label>สี</label><input id="fld-color" value="${c?c.color:''}" placeholder="ขาวมุก"></div>
+      <div class="form-field"><label>รหัสสี (hex)</label><input id="fld-colorhex" value="${c?c.colorHex:'#9BA0AA'}" placeholder="#EDEDED"></div>
+      <div class="form-field"><label>เบอร์ติดต่อ</label><input id="fld-phone" value="${c?c.phone:''}" placeholder="081-234-5678"></div>
+      <div class="form-field">
+        <label>สถานะ</label>
+        <select id="fld-status">
+          <option value="available" ${c&&c.status==='available'?'selected':''}>พร้อมขาย</option>
+          <option value="sold" ${c&&c.status==='sold'?'selected':''}>ขายแล้ว</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-grid full">
+      <div class="form-field"><label>รายละเอียดเพิ่มเติม</label><textarea id="fld-desc">${c?c.description:''}</textarea></div>
+    </div>
+    <button class="save-btn" onclick="saveCarForm()">${c?'บันทึกการแก้ไข':'เพิ่มรถเข้าระบบ'}</button>
+  `;
+  renderUploadThumbs();
+}
+
+// ---------- Photo upload (Cloudinary) ----------
+let formImages = [];
+
+function renderUploadThumbs(){
+  const box = document.getElementById('uploadThumbs');
+  if(!box) return;
+  box.innerHTML = formImages.map((url, i) => `
+    <div class="upload-thumb">
+      <img src="${url}">
+      <div class="rm" onclick="removeFormImage(${i})">✕</div>
+    </div>
+  `).join('');
+}
+
+function removeFormImage(i){
+  formImages.splice(i, 1);
+  renderUploadThumbs();
+}
+
+async function handlePhotoSelect(event){
+  const files = Array.from(event.target.files || []);
+  if(!files.length) return;
+  const remaining = 5 - formImages.length;
+  const toUpload = files.slice(0, Math.max(remaining, 0));
+  if(toUpload.length < files.length) showToast('อัปโหลดได้สูงสุด 5 รูปต่อคัน');
+
+  for(const file of toUpload){
+    const box = document.getElementById('uploadThumbs');
+    const placeholder = document.createElement('div');
+    placeholder.className = 'upload-thumb uploading';
+    placeholder.textContent = 'กำลังอัป...';
+    box.appendChild(placeholder);
+    try{
+      const url = await uploadToCloudinary(file);
+      formImages.push(url);
+    }catch(e){
+      console.error(e);
+      showToast('อัปโหลดรูปไม่สำเร็จ ตรวจสอบค่า Cloudinary config');
+    }
+    renderUploadThumbs();
+  }
+  event.target.value = '';
+}
+
+async function saveCarForm(){
+  const brand = document.getElementById('fld-brand').value.trim();
+  const model = document.getElementById('fld-model').value.trim();
+  const year = parseInt(document.getElementById('fld-year').value);
+  const price = parseFloat(document.getElementById('fld-price').value);
+  const mileage = parseFloat(document.getElementById('fld-mileage').value);
+
+  if(!brand || !model || !year || !price || isNaN(mileage)){
+    showToast('กรอกข้อมูลให้ครบ: ยี่ห้อ รุ่น ปี ราคา เลขไมล์');
+    return;
+  }
+
+  const data = {
+    brand, model, year, price, mileage,
+    transmission: document.getElementById('fld-trans').value,
+    fuel: document.getElementById('fld-fuel').value,
+    color: document.getElementById('fld-color').value.trim() || 'ไม่ระบุ',
+    colorHex: document.getElementById('fld-colorhex').value.trim() || '#9BA0AA',
+    phone: document.getElementById('fld-phone').value.trim() || '-',
+    status: document.getElementById('fld-status').value,
+    description: document.getElementById('fld-desc').value.trim(),
+    images: formImages,
+  };
+
+  try{
+    if(editingId){
+      await carsRef.doc(editingId).update(data);
+      showToast('บันทึกการแก้ไขแล้ว');
+    } else {
+      await carsRef.add({...data, dateAdded: Date.now()});
+      showToast('เพิ่มรถเข้าระบบแล้ว');
+    }
+    renderAdminList(); // onSnapshot will also refresh, this keeps UI snappy
+  }catch(e){
+    console.error(e);
+    showToast('บันทึกไม่สำเร็จ ตรวจสอบการเชื่อมต่อ Firebase');
+  }
+}
+
+async function deleteCar(id){
+  if(!confirm('ยืนยันลบรถคันนี้ออกจากระบบ?')) return;
+  try{
+    await carsRef.doc(id).delete();
+    showToast('ลบรถออกจากระบบแล้ว');
+  }catch(e){
+    console.error(e);
+    showToast('ลบไม่สำเร็จ ตรวจสอบการเชื่อมต่อ Firebase');
+  }
+}
+
+// close overlays on backdrop click
+document.getElementById('detailOverlay').addEventListener('click', e=>{ if(e.target.id==='detailOverlay') closeOverlay('detailOverlay'); });
+document.getElementById('adminOverlay').addEventListener('click', e=>{ if(e.target.id==='adminOverlay') closeOverlay('adminOverlay'); });
+
+// ---------- Init ----------
+(async function init(){
+  document.getElementById('lineFab').href = LINE_URL;
+  try{
+    await seedIfEmpty();
+  }catch(e){
+    console.error(e);
+    showToast('เชื่อมต่อ Firebase ไม่สำเร็จ ตรวจสอบ config และ Firestore rules');
+  }
+  listenToCars();
+})();
+</script>
+</body>
+</html>
