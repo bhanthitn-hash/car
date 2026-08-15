@@ -1,0 +1,38 @@
+# ทางตรง มอเตอร์ — robots.txt
+# อนุญาตให้ทุก crawler เข้าถึงได้ รวมถึง AI crawler ของแพลตฟอร์มค้นหาต่างๆ
+
+User-agent: *
+Allow: /
+
+# --- AI / LLM crawlers (อนุญาตให้เข้าถึงเพื่อให้ AI ค้นเจอและอ้างอิงเว็บได้) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://car.unjaiit.com/sitemap.xml
