@@ -10,6 +10,7 @@
 <meta property="og:title" content="ทางตรง มอเตอร์ | ตลาดรถมือสอง">
 <meta property="og:description" content="ค้นหารถมือสองทุกยี่ห้อ เปรียบเทียบราคา ตรวจสภาพและแจ้งประวัติชัดเจน">
 <meta property="og:locale" content="th_TH">
+<link rel="canonical" href="https://car.unjaiit.com/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json" id="orgSchema">
 {
@@ -20,6 +21,10 @@
   "areaServed": "TH"
 }
 </script>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Sarabun:wght@400;500;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -291,6 +296,14 @@
 </style>
 </head>
 <body>
+<noscript>
+  <div style="padding:24px;font-family:sans-serif;color:#F2F0EA;background:#14161A;">
+    <h1>ทางตรง มอเตอร์ | ตลาดรถมือสอง</h1>
+    <p>ซื้อขายรถมือสองออนไลน์ ตรงไปตรงมา ไม่มีหมกเม็ด ตรวจสภาพและแจ้งประวัติรถชัดเจนทุกคัน มีรถทุกยี่ห้อ ทุกช่วงราคา พร้อมระบบค้นหาและกรองตามยี่ห้อ ปี ราคา เกียร์ และเชื้อเพลิง</p>
+    <p>ทักไลน์หรือโทรสอบถามรถแต่ละคันได้โดยตรง กรุณาเปิด JavaScript เพื่อดูรายการรถทั้งหมดและใช้งานเว็บไซต์แบบเต็มรูปแบบ</p>
+  </div>
+</noscript>
+
 
 <header>
   <div class="logo">
@@ -774,7 +787,7 @@ function renderAdminLogin(){
       <input type="password" id="loginPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
     </div>
     <button class="save-btn" onclick="doLogin()">เข้าสู่ระบบ</button>
-    <div class="hint"></div>
+    <div class="hint">ต้องสร้างบัญชีแอดมินใน Firebase Console ก่อน (Authentication → Users)</div>
   `;
   setTimeout(()=>document.getElementById('loginEmail')?.focus(), 100);
 }
