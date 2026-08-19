@@ -94,6 +94,24 @@
   .cta-row{display:flex; flex-direction:column; gap:8px; margin-top:6px;}
   .cta-note{text-align:center; font-size:11.5px; color:var(--text-muted); margin-top:8px;}
 
+  /* ---------- Share ---------- */
+  .icon-round{
+    width:34px; height:34px; border-radius:50%; background:var(--surface-2); color:var(--text);
+    display:flex; align-items:center; justify-content:center; border:1px solid #ffffff18;
+  }
+  .header-actions{display:flex; align-items:center; gap:8px;}
+  .share-menu{
+    display:none; position:absolute; right:20px; top:60px; z-index:60;
+    background:var(--surface); border:1px solid #ffffff18; border-radius:12px; padding:8px;
+    box-shadow:0 12px 28px #00000070; min-width:190px;
+  }
+  .share-menu.open{display:block;}
+  .share-menu button{
+    width:100%; text-align:left; background:transparent; color:var(--text); padding:10px 10px;
+    border-radius:8px; font-size:13.5px; display:flex; align-items:center; gap:10px;
+  }
+  .share-menu button:hover{background:var(--surface-2);}
+
   /* ---------- Hero ---------- */
   .hero{
     padding:44px 20px 28px; position:relative; overflow:hidden;
@@ -319,7 +337,12 @@
       <div class="logo-sub">USED CAR MARKET</div>
     </div>
   </div>
-  <button class="admin-btn" onclick="openAdmin()">สำหรับผู้ดูแล</button>
+  <div class="header-actions">
+    <button class="icon-round" onclick="shareSite()" title="แชร์เว็บทั้งหมด">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg>
+    </button>
+    <button class="admin-btn" onclick="openAdmin()">สำหรับผู้ดูแล</button>
+  </div>
 </header>
 
 <section class="hero">
@@ -422,6 +445,8 @@
 
 <div class="toast" id="toast"></div>
 
+<div class="share-menu" id="shareMenu"></div>
+
 <!-- ===== Firebase SDK (compat build, works with plain <script>) ===== -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -516,6 +541,7 @@ function listenToCars(){
   unsubscribe = carsRef.onSnapshot(snapshot => {
     cars = snapshot.docs.map(d => ({id: d.id, ...d.data()}));
     refreshAll();
+    handleDeepLink();
     // keep admin list in sync if it's currently open
     if(adminMode && document.getElementById('adminListItems')){
       renderAdminList();
@@ -657,6 +683,7 @@ function renderCarSchema(){
       "vehicleTransmission": c.transmission === 'auto' ? 'Automatic' : 'Manual',
       "fuelType": fuelTH[c.fuel],
       "color": c.color,
+      "url": buildShareURL(c.id),
       ...(c.images && c.images.length ? { "image": c.images[0] } : {}),
       "offers": {
         "@type": "Offer",
@@ -709,7 +736,12 @@ function openDetail(id){
   sheet.innerHTML = `
     <div class="sheet-head">
       <h2>${c.brand} ${c.model}</h2>
-      <button class="close-x" onclick="closeOverlay('detailOverlay')">✕</button>
+      <div style="display:flex; gap:8px;">
+        <button class="close-x" onclick="shareCar('${c.id}', '${(c.brand+' '+c.model).replace(/'/g,"")}')" title="แชร์">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg>
+        </button>
+        <button class="close-x" onclick="closeOverlay('detailOverlay')">✕</button>
+      </div>
     </div>
     <div class="detail-photo" id="detailPhotoMain">${c.images && c.images.length ? `<img src="${c.images[0]}" alt="${c.brand} ${c.model}">` : carSVG(c.colorHex)}</div>
     ${c.images && c.images.length > 1 ? `
@@ -743,6 +775,12 @@ function openDetail(id){
   `;
   renderOdometer(document.getElementById('detailPrice'), c.price, '');
   document.getElementById('detailOverlay').classList.add('open');
+  currentDetailCarId = c.id;
+  const url = new URL(window.location.href);
+  url.searchParams.set('car', c.id);
+  if(window.location.search !== url.search){
+    history.pushState({carId: c.id}, '', url);
+  }
 }
 
 function switchDetailPhoto(carId, idx, thumbEl){
@@ -755,6 +793,101 @@ function switchDetailPhoto(carId, idx, thumbEl){
 
 function closeOverlay(id){
   document.getElementById(id).classList.remove('open');
+  if(id === 'detailOverlay' && currentDetailCarId){
+    currentDetailCarId = null;
+    const url = new URL(window.location.href);
+    url.searchParams.delete('car');
+    history.pushState({}, '', url.pathname + (url.search || ''));
+  }
+}
+
+// ---------- Share ----------
+let currentDetailCarId = null;
+
+function buildShareURL(carId){
+  const url = new URL(window.location.origin + window.location.pathname);
+  if(carId) url.searchParams.set('car', carId);
+  return url.toString();
+}
+
+async function shareCar(id, label){
+  const url = buildShareURL(id);
+  const shareData = { title: `${label} | ทางตรง มอเตอร์`, text: `สนใจ ${label} ดูรายละเอียดที่นี่`, url };
+  if(navigator.share){
+    try{ await navigator.share(shareData); }catch(e){ /* user cancelled */ }
+  } else {
+    openShareMenu(url, shareData.text);
+  }
+}
+
+async function shareSite(){
+  const url = buildShareURL();
+  const shareData = { title: 'ทางตรง มอเตอร์ | ตลาดรถมือสอง', text: 'ดูรถมือสองทุกคันที่นี่', url };
+  if(navigator.share){
+    try{ await navigator.share(shareData); }catch(e){ /* user cancelled */ }
+  } else {
+    openShareMenu(url, shareData.text);
+  }
+}
+
+function openShareMenu(url, text){
+  const menu = document.getElementById('shareMenu');
+  const enc = encodeURIComponent(url);
+  const encText = encodeURIComponent(text || '');
+  menu.innerHTML = `
+    <button onclick="copyShareLink('${url}')">🔗 คัดลอกลิงก์</button>
+    <button onclick="window.open('https://social-plugins.line.me/lineit/share?url=${enc}','_blank')">💬 แชร์ไป LINE</button>
+    <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${enc}','_blank')">📘 แชร์ไป Facebook</button>
+    <button onclick="window.open('https://twitter.com/intent/tweet?url=${enc}&text=${encText}','_blank')">✖️ แชร์ไป X</button>
+  `;
+  menu.classList.add('open');
+  setTimeout(()=>document.addEventListener('click', closeShareMenuOnce), 0);
+}
+
+function closeShareMenuOnce(e){
+  const menu = document.getElementById('shareMenu');
+  if(!menu.contains(e.target)){
+    menu.classList.remove('open');
+    document.removeEventListener('click', closeShareMenuOnce);
+  }
+}
+
+function copyShareLink(url){
+  navigator.clipboard.writeText(url).then(()=>{
+    showToast('คัดลอกลิงก์แล้ว');
+    document.getElementById('shareMenu').classList.remove('open');
+  }).catch(()=>showToast('คัดลอกไม่สำเร็จ'));
+}
+
+// handle browser back/forward for deep links
+window.addEventListener('popstate', () => {
+  const params = new URLSearchParams(window.location.search);
+  const carId = params.get('car');
+  if(carId && cars.find(c=>c.id===carId)){
+    openDetail(carId);
+  } else {
+    closeOverlay('detailOverlay');
+  }
+});
+
+// check the URL on load / whenever car list updates for a deep link to a specific car
+function handleDeepLink(){
+  const params = new URLSearchParams(window.location.search);
+  const carId = params.get('car');
+  if(!carId) return;
+
+  const c = cars.find(x=>x.id===carId);
+  if(c){
+    if(!document.getElementById('detailOverlay').classList.contains('open')){
+      openDetail(carId);
+    }
+  } else if(currentDetailCarId === carId || !document.getElementById('detailOverlay').classList.contains('open')){
+    // car referenced in the link no longer exists (sold & removed) — send back to homepage
+    closeOverlay('detailOverlay');
+    const url = new URL(window.location.origin + window.location.pathname);
+    history.replaceState({}, '', url);
+    showToast('รถคันนี้ถูกขายแล้วหรือไม่มีในระบบแล้ว — พาไปหน้าหลักให้ค่ะ');
+  }
 }
 
 // ---------- Admin (Firebase Auth) ----------
